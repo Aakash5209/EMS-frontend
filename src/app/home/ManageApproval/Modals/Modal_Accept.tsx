@@ -2,7 +2,8 @@
 
 import { createAcceptSalaryApprovalAPIThunk } from "@/lib/store/thunk/acceptSalaryApprovalActionCreator";
 import React, { useState } from "react";
-
+import { ToastContainer, toast, ToastPosition } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import ReactDom from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -32,6 +33,17 @@ const AcceptModal: React.FC = ({
       })
     );
     setSalaryAccepted((prev) => !prev);
+ 
+    toast.success('Salary update request approved!!', {
+      position: 'top-right',
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+ 
     onClose();
   };
 
@@ -60,6 +72,7 @@ const AcceptModal: React.FC = ({
       />
     </form>
   </div>
+  <ToastContainer />
 </div>,
     document.getElementById("popupmodal")
   );

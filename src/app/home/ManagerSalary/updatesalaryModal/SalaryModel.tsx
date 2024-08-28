@@ -2,7 +2,8 @@
 
 import { createUpdateSalaryAPIThunkRedux } from "@/lib/store/thunk/UpdateSalaryActionCreator";
 import React, { useEffect, useState } from "react";
-
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import ReactDom from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -37,6 +38,18 @@ const SalaryModel: React.FC = ({
 
   const handleAddModel = (e) => {
     e.preventDefault();
+    if (formData.updatedSalary < 0) {
+      toast.error("Salary can't be negative!", {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined, 
+      });
+      return; 
+    }
 
     const fetchApiDataBackend = createUpdateSalaryAPIThunkRedux(
       "updatesalaryrequest",
@@ -151,6 +164,7 @@ const SalaryModel: React.FC = ({
       />
     </form>
   </div>
+  <ToastContainer />
 </div>,
     document.getElementById("popupmodal")
   );

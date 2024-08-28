@@ -56,7 +56,7 @@ const Signin = () => {
       setUser(loginData?.user);
       toast.success('Login successful!', {
         position: 'top-right',
-        autoClose: 5000,
+        autoClose: 4000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

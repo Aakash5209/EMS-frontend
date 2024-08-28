@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { useTable } from "react-table";
 
 const ApprovalTable = ({ data, onAccept, onReject, setCurrentBox }) => {
@@ -10,8 +10,8 @@ const ApprovalTable = ({ data, onAccept, onReject, setCurrentBox }) => {
       },
       {
         Header: "User",
-        accessor: (row) => `${row.firstName} ${row.lastName}`, // Combine first and last name
-        id: "fullName", // Give an id to this column
+        accessor: (row) => `${row.firstName} ${row.lastName}`, 
+        id: "fullName",
       },
       {
         Header: "Role",
