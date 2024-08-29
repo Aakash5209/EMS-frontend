@@ -54,14 +54,7 @@ const Info = () => {
           {user?.length > 0 ? user[0].reporting_manager : "N/A"}
         </p>
       </div> */}
-          {user?.length > 0 && user[0].role !== "Admin" && (
-            <div className="col-span-1">
-              <p className="text-lg text-gray-700">
-                <strong className="block text-gray-600">Reporting manager Id:</strong>
-                {user[0].reporting_manager || "N/A"}
-              </p>
-            </div>
-          )}
+        
 
           <div className="col-span-1">
             <p className="text-lg text-gray-700">
@@ -88,6 +81,24 @@ const Info = () => {
               {user?.length > 0 ? user[0].gender : "N/A"}
             </p>
           </div>
+
+          {user?.length > 0 && user[0].role !== "Admin" && (
+            <div className="col-span-1">
+              <p className="text-lg text-gray-700">
+                <strong className="block text-gray-600">Reporting manager Id:</strong>
+                {user[1].id || "N/A"}
+              </p>
+            </div>
+          )}
+          {user?.length > 0 && user[0].role !== "Admin" && (
+            <div className="col-span-1">
+              <p className="text-lg text-gray-700">
+                <strong className="block text-gray-600">Reporting manager Email:</strong>
+                {user[1].email || "N/A"}
+              </p>
+            </div>
+          )}
+
         </div>
       </div>
     </main>

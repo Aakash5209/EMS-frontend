@@ -111,3 +111,5 @@ const showTable = ({ DATA, handleSalaryChange }) => {
 };
 
 export default showTable;
+
+

@@ -32,6 +32,15 @@ const ManageSalary = () => {
     setEditCell(cell.row.original);
   };
 
+  const fetchData = () => {
+    const fetchApiDataBackend = createGetUserDataAPIThunkRedux(
+      'updatedRequest',
+      'updatedSuccess',
+      'updatedFail'
+    );
+    dispatch(fetchApiDataBackend("get", `/salary/getAllUserSalaryByRole/${PageNo}/5`, null));
+  };
+
   useEffect(() => {
     if (UserData?.User) {
       Setdatas(UserData?.User);
@@ -77,11 +86,25 @@ const ManageSalary = () => {
     onClose={() => setIsModalOpen(false)}
   />
 
-  <div className="flex justify-center ">
+  {/* <div className="flex justify-center ">
     <div className="w-full max-w-4xl">
       <ShowTable DATA={datas} handleSalaryChange={handleSalaryChangeFn} />
     </div>
+  </div> */}
+
+{datas.length > 0 ? (
+  <div className="flex justify-center">
+    <div className="w-full max-w-7xl"> {/* Adjust max-w-7xl to a larger size if needed */}
+      <ShowTable DATA={datas} handleSalaryChange={handleSalaryChangeFn} />
+    </div>
   </div>
+) : (
+  <div className="text-center text-gray-600 text-lg">
+    No salary records to display
+  </div>
+)}
+
+  
 
   {list && (
     <div className="flex justify-center mt-6">

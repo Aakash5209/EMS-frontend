@@ -53,14 +53,29 @@ const ManageApproval = () => {
   <div className="flex items-center justify-between mb-4">
     <h1 className="text-3xl font-bold text-gray-800">Salary Update Info</h1>
   </div>
-  <div className="mb-4 max-w-4xl mx-auto">
+  {/* <div className="mb-4 max-w-4xl mx-auto">
     <ApprovalTable
       data={UserData}
       onAccept={onAccept}
       onReject={onReject}
       setCurrentBox={setCurrentBox}
     />
-  </div>
+  </div> */}
+   {UserData.length > 0 ? (
+        <div className="mb-4 max-w-4xl mx-auto">
+          <ApprovalTable
+            data={UserData}
+            onAccept={onAccept}
+            onReject={onReject}
+            setCurrentBox={setCurrentBox}
+          />
+        </div>
+      ) : (
+        <div className="text-center text-gray-600 text-lg">
+          No pending approvals.
+        </div>
+      )}
+
   <RejectModal
     setSalaryAccepted={setSalaryAccepted}
     setCurrentBox={setCurrentBox}
