@@ -97,8 +97,8 @@ const Signin = () => {
 
   return (
     
-    <div className="flex min-h-screen items-center justify-center bg-gray-200">
-  <div className="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
+    <div className="flex min-h-screen items-center justify-center bg-white-200">
+  <div className="w-full max-w-md bg-gray-200 p-8 rounded-lg shadow-md">
     <h2 className="text-3xl font-semibold text-center mb-6 text-gray-900">
       Sign In
     </h2>
