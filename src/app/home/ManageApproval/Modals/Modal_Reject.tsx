@@ -1,7 +1,8 @@
+
 "use client";
 
 import { createRejectSalaryAPIThunkRedux } from "@/lib/store/thunk/rejectSalaryActionCreator";
-import React, { useState } from "react";
+import React from "react";
 
 import ReactDom from "react-dom";
 import { useDispatch } from "react-redux";
@@ -14,9 +15,8 @@ const RejectModal: React.FC = ({
   setCurrentBox,
 }) => {
   if (!isOpen) return null;
-  const [reason, setReason] = useState("");
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
 
   const handleAddModel = (e) => {
     e.preventDefault();
@@ -37,46 +37,27 @@ const RejectModal: React.FC = ({
     onClose();
   };
 
-
   return ReactDom.createPortal(
-    
     <div className="fixed inset-0 bg-gray-800 bg-opacity-60 flex items-center justify-center">
-  <div className="bg-gray-100 p-6 rounded-lg shadow-lg w-full max-w-sm relative"> 
-    <button
-      className="absolute top-3 right-3 text-gray-600 hover:text-gray-900 text-2xl" 
-      onClick={() => onClose()}
-    >
-      &times;
-    </button>
-    <h2 className="text-2xl font-bold mb-4 text-gray-900"> 
-      Rejection Form
-    </h2>
-    <form className="space-y-4" onSubmit={handleAddModel}>
-      <div>
-        <label
-          htmlFor="rejection-reason"
-          className="block text-base font-medium text-gray-800" 
+      <div className="bg-gray-100 p-4 rounded-lg shadow-lg w-full max-w-xs relative"> 
+        <button
+          className="absolute top-2 right-2 text-gray-600 hover:text-gray-900 text-2xl" 
+          onClick={() => onClose()}
         >
-          Rejection Message
-        </label>
-        <input
-          id="rejection-reason"
-          type="text"
-          required
-          onChange={(e) => setReason(e.target.value)}
-          name="reason"
-          className="mt-2 outline-none block w-full border-gray-400 rounded-md shadow-sm text-base p-2" 
-        />
+          &times;
+        </button>
+        <h2 className="text-xl font-bold mb-4 text-gray-900"> 
+          Confirm Rejection
+        </h2>
+        <form className="space-y-4" onSubmit={handleAddModel}>
+          <input
+            type="submit"
+            value={"Reject"}
+            className="px-4 py-2 bg-red-600 text-white font-bold rounded-lg shadow-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-80 text-base" 
+          />
+        </form>
       </div>
-
-      <input
-        type="submit"
-        value={"Reject"}
-        className="px-6 py-3 bg-red-600 text-white font-bold rounded-lg shadow-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-80 text-base" 
-      />
-    </form>
-  </div>
-</div>,
+    </div>,
     document.getElementById("popupmodal")
   );
 };

@@ -58,6 +58,7 @@ const Sidebar: React.FC = () => {
       logoutfail
     );
     dispatch(fetchApiDataBackend("get", `/auth/logout`, null));
+    localStorage.clear();
   };
 
   useEffect(() => {
@@ -65,7 +66,6 @@ const Sidebar: React.FC = () => {
       window.location.reload();
       route.push("/login");
       setUser(null);
-
     }
   }, [logoutData]);
 
