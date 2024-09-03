@@ -38,8 +38,7 @@ const Signin = () => {
     error: cookieCheckError,
   } = cookieCheckState;
 
-  console.log(loginData, loginLoading, loginError);
-  console.log(cookieCheckData, cookieCheckLoading, cookieCheckError);
+  
 
   const handleSignIn = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

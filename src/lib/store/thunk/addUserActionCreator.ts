@@ -10,7 +10,7 @@ const initialState = {
 
 // Generic API utility function
 export const apiRequest = (method, url, data = null) => {
-  console.log(method, url, data);
+
   return Interceptor({
     method,
     url,

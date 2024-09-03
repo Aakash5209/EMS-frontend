@@ -124,7 +124,7 @@ const ManagerUser = () => {
 
   useEffect(() => {
     if (ColumnSearchData?.User) {
-      console.log(ColumnSearchData);
+     
       setDATA(ColumnSearchData);
     }
 

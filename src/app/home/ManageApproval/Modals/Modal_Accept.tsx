@@ -43,6 +43,7 @@ const AcceptModal: React.FC = ({
       draggable: true,
       progress: undefined,
     });
+    // window.location.reload();
  
     onClose();
   };
